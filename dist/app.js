@@ -34,6 +34,7 @@ const registerRouter_1 = require("./routes/registerRouter");
 const loginRouter_1 = require("./routes/loginRouter");
 const createTodoRouter_1 = require("./routes/createTodoRouter");
 const retrieveTodosRouter_1 = require("./routes/retrieveTodosRouter");
+const deleteTodoRouter_1 = require("./routes/deleteTodoRouter");
 dotenv.config();
 const app = (0, express_1.default)();
 const port = process.env.PORT;
@@ -46,6 +47,7 @@ app.use('/', registerRouter_1.registerRoute);
 app.use('/', loginRouter_1.loginRoute);
 app.use('/', createTodoRouter_1.createTodoRouter);
 app.use('/', retrieveTodosRouter_1.retrieveTodosRouter);
+app.use('/', deleteTodoRouter_1.deleteTodoRouter);
 app.get('/', (req, res) => {
     res.send('Hello Tech Hive!');
 });

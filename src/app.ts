@@ -6,6 +6,7 @@ import { registerRoute } from './routes/registerRouter';
 import { loginRoute } from './routes/loginRouter';
 import { createTodoRouter } from './routes/createTodoRouter';
 import { retrieveTodosRouter } from './routes/retrieveTodosRouter';
+import { deleteTodoRouter } from './routes/deleteTodoRouter';
 dotenv.config()
 
 const app = express();
@@ -20,6 +21,7 @@ app.use('/', registerRoute)
 app.use('/', loginRoute)
 app.use('/', createTodoRouter)
 app.use('/', retrieveTodosRouter)
+app.use('/', deleteTodoRouter)
 
 app.get('/', (req, res) => {
   res.send('Hello Tech Hive!');
