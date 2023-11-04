@@ -36,24 +36,28 @@ const client_1 = require("@prisma/client");
 const dotenv = __importStar(require("dotenv"));
 dotenv.config();
 const prisma = new client_1.PrismaClient();
-function deleteTodo(req, res) {
+function updateTodo(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const deleted = yield prisma.todo.delete({
+        const updated = yield prisma.todo.update({
             where: {
-                id: Number(req.header("todoid"))
+                id: req.body.id,
+            },
+            data: {
+                title: req.body.title,
+                description: req.body.description,
             },
         });
-        if (deleted) {
-            console.log(deleted);
+        if (updated) {
+            console.log(updated);
             yield prisma.$disconnect;
-            res.status(204).send("Item deleted successfully");
+            res.status(204).send("Item updated successfully");
         }
         else {
-            console.log("an error occurred while deleting todo");
+            console.log("an error occurred while updating todo");
             yield prisma.$disconnect;
-            res.status(501).send("an error occurred while deleting todo");
+            res.status(501).send("an error occurred while updating todo");
         }
     });
 }
-exports.default = deleteTodo;
-//# sourceMappingURL=deleteTodo.js.map
+exports.default = updateTodo;
+//# sourceMappingURL=updateTodo.js.map

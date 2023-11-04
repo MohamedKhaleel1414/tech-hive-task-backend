@@ -15,7 +15,7 @@ export default async function deleteTodo(req, res) {
     await prisma.$disconnect;
     res.status(204).send("Item deleted successfully");
   } else {
-    console.log("an error occurred while adding todo");
+    console.log("an error occurred while deleting todo");
     await prisma.$disconnect;
     res.status(501).send("an error occurred while deleting todo");
   }
