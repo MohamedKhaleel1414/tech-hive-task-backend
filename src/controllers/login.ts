@@ -15,7 +15,7 @@ export default async function login(req,res) {
     if(loggedUser){
         // console.log(loggedUser)
         let token = jwt.sign(loggedUser.id.toString(), process.env.TOKEN_SECRET);
-        // console.log(token)
+        console.log(token)
         await prisma.$disconnect
         res.header("Authentication",token)
         res.status(200).send(loggedUser)

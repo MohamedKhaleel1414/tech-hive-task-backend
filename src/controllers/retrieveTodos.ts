@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 export default async function retrieveTodos(req,res) {
     const todos = await prisma.todo.findMany({
         where:{
-            userId:req.params.id
+            userId:req.header("id")
         }
     })
     if(todos.length > 0){

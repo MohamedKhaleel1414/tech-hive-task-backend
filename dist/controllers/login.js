@@ -51,7 +51,7 @@ function login(req, res) {
         if (loggedUser) {
             // console.log(loggedUser)
             let token = jsonwebtoken_1.default.sign(loggedUser.id.toString(), process.env.TOKEN_SECRET);
-            // console.log(token)
+            console.log(token);
             yield prisma.$disconnect;
             res.header("Authentication", token);
             res.status(200).send(loggedUser);

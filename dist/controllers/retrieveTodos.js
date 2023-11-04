@@ -40,7 +40,7 @@ function retrieveTodos(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const todos = yield prisma.todo.findMany({
             where: {
-                userId: req.params.id
+                userId: req.header("id")
             }
         });
         if (todos.length > 0) {

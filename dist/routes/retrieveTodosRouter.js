@@ -8,5 +8,5 @@ const express_1 = __importDefault(require("express"));
 const retrieveTodos_1 = __importDefault(require("../controllers/retrieveTodos"));
 const middleware_1 = __importDefault(require("../controllers/middleware"));
 const router = express_1.default.Router();
-exports.retrieveTodosRouter = router.get('/retrievetodos/:id', middleware_1.default, retrieveTodos_1.default);
+exports.retrieveTodosRouter = router.get('/retrievetodos', middleware_1.default, retrieveTodos_1.default);
 //# sourceMappingURL=retrieveTodosRouter.js.map
