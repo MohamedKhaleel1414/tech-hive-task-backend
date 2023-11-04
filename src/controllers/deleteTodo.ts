@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 export default async function deleteTodo(req, res) {
   const deleted = await prisma.todo.delete({
     where: {
-      id: req.body.id,
+      id: Number(req.header("todoid"))
     },
   });
   if (deleted) {

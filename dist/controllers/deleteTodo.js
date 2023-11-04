@@ -40,7 +40,7 @@ function deleteTodo(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const deleted = yield prisma.todo.delete({
             where: {
-                id: req.body.id,
+                id: Number(req.header("todoid"))
             },
         });
         if (deleted) {
