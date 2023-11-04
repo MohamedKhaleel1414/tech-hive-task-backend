@@ -18,11 +18,7 @@ export default async function login(req,res) {
         console.log(token)
         await prisma.$disconnect
         res.header("Authentication",token)
-        let sentData = {
-            username:loggedUser.username,
-            email:loggedUser.email,
-        }
-        res.status(200).send(sentData)
+        res.status(200).send(loggedUser)
     } else {
         await prisma.$disconnect
         res.status(401).send("Invalid email or password")
